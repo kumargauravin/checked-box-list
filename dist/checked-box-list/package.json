@@ -1,0 +1,31 @@
+{
+  "name": "checked-box-list",
+  "version": "0.0.4",
+  "peerDependencies": {
+    "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
+    "@angular/core": "^6.0.0-rc.0 || ^6.0.0"
+  },
+  "bugs": "https://github.com/kumargauravin/checked-box-list/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kumargauravin/checked-box-list"
+  },
+  "keywords": [
+    "angular",
+    "checkbox list",
+    "list with checkbox"
+  ],
+  "main": "bundles/checked-box-list.umd.js",
+  "module": "fesm5/checked-box-list.js",
+  "es2015": "fesm2015/checked-box-list.js",
+  "esm5": "esm5/checked-box-list.js",
+  "esm2015": "esm2015/checked-box-list.js",
+  "fesm5": "fesm5/checked-box-list.js",
+  "fesm2015": "fesm2015/checked-box-list.js",
+  "typings": "checked-box-list.d.ts",
+  "metadata": "checked-box-list.metadata.json",
+  "sideEffects": false,
+  "dependencies": {
+    "tslib": "^1.9.0"
+  }
+}
