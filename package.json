@@ -12,7 +12,7 @@
     "npm-pack": "cd dist/checked-box-list && npm pack",
     "package": "npm run build-lib && npm run npm-pack"
   },
-  "private": true,
+  "private": false,
   "dependencies": {
     "@angular/animations": "^6.1.0",
     "@angular/common": "^6.1.0",
