@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/kumargauravin/checked-box-list.svg?branch=master)](https://travis-ci.org/kumargauravin/checked-box-list)
+
 #Works With
 
 Reactive Forms without Validation Requirements as of now.
