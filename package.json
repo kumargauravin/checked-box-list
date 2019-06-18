@@ -27,7 +27,7 @@
     "node-sass": "^4.12.0",
     "rxjs": "~6.2.0",
     "zone.js": "~0.8.26",
-    "checked-box-list": "file:dist/checked-box-list"
+    "checked-box-list": "latest"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.8.0",
