@@ -1,5 +1,8 @@
 <form [formGroup]="form">
-<ng6-checked-box-list [values]="values" returnKey="name" maxHeightPx="60" formControlName="orders"></ng6-checked-box-list>
-{{form.controls.orders.value}}
+    Search <input type="text" (keyup)="filter()" formControlName="search"/> <button (click)="reset()">reset</button>
+    <ng6-checked-box-list [values]="values" returnKey="name" maxHeightPx="60" formControlName="orders"></ng6-checked-box-list>
+    <br>
+    Returned Values:-
+    {{form.controls.orders.value}}
 </form>
 

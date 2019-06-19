@@ -1,7 +1,9 @@
 <div style="padding: 1em;overflow:auto" [ngStyle]="{'height.px':maxHeightPx}">
-    <label class="container" *ngFor="let order of orders; let i = index">
-        <input type="checkbox" (click)="submit(i,$event)">
+    <ng-container *ngFor="let order of orders; let i = index">
+    <label class="container" *ngIf="!order.hide">
+        <input type="checkbox" [checked]="order.checked" (click)="submit(i,$event)">
         <span class="checkmark"></span>
         {{order.name}}
     </label>
+    </ng-container>
 </div>

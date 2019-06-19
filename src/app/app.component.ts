@@ -9,12 +9,31 @@ import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 export class AppComponent {
   title = 'npm-checked-box-list';
   form: FormGroup;
-  values = [{id:1,name:"Option 1"},{id:2,name:"Option 2"}];
+  values:any = [{id:1,name:"Gender"},{id:2,name:"Married"}];
   constructor(){
     this.form = new FormGroup({
-      orders: new FormControl()
+      orders: new FormControl(),
+      search: new FormControl()
    });
-   this.values.push({id:3,name:"Option 3"});
-   this.values.push({id:4,name:"Option 4"});
+   this.values.push({id:3,name:"HavePets"});
+   this.values.push({id:4,name:"haveChildren",checked:true});
+  }
+  filter(){
+    this.reset();
+    if (this.form.controls.search.value.length > 0) { 
+    let self=this;
+    this.values.map(function(item) {
+      if(item.name.toLowerCase().indexOf(self.form.controls.search.value.toLowerCase()) == -1) {
+        item.hide=true;
+      }
+      return item;
+    });
+  }
+  }
+  reset(){
+    this.values.map(function(item) { 
+      delete item.hide; 
+      return item; 
+    });
   }
 }
