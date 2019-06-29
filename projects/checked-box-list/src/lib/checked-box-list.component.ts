@@ -1,7 +1,7 @@
 import { Component, Input, forwardRef } from '@angular/core';
-import { FormBuilder, FormGroup, FormArray, FormControl, ValidatorFn } from '@angular/forms';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { of } from 'rxjs';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR, NG_VALIDATORS, 
+  FormControl, 
+  Validator  } from '@angular/forms';
 
 @Component({
   selector: 'ng6-checked-box-list',
@@ -12,18 +12,20 @@ import { of } from 'rxjs';
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => CheckedBoxListComponent),
       multi: true
-    }
+    },
+    {
+      provide: NG_VALIDATORS,
+      useExisting: forwardRef(() => CheckedBoxListComponent),
+      multi: true,
+    } 
   ]
 })
 export class CheckedBoxListComponent implements ControlValueAccessor {
   @Input('values') orders: any;
-  @Input() returnKey: string;
   @Input() maxHeightPx: string;
-
-  selectedOrderIds: any;
-
   propagateChange = (_: any) => {
   };
+  showError: boolean;
 
   registerOnChange(fn) {
     this.propagateChange = fn;
@@ -37,17 +39,26 @@ export class CheckedBoxListComponent implements ControlValueAccessor {
     this.sendData();
   }
 
-  constructor() {
-  }
+  constructor() {}
+
+  ngOnChanges() {}
 
   submit(i, event) {
-    this.orders[i].checked = event.srcElement.checked;
+    this.orders[i].checked = event.target.checked;
     this.sendData();
   }
 
   sendData() {
-    this.selectedOrderIds = this.orders.map((v, i) => v.checked ? (this.returnKey ? this.orders[i][this.returnKey] : this.orders[i]) : null)
-      .filter(v => v !== null);
-    this.propagateChange(this.selectedOrderIds);
+    const testSelectAll = this.orders.filter(item => !item.checked);
+    this.showError = testSelectAll.length === this.orders.length;
+    this.propagateChange(this.orders);
+  }
+
+  public validate(c: FormControl) {
+    return (this.showError) ?  {
+        checkedBoxList: {
+            valid: false,
+        }
+    } : null;
   }
 }

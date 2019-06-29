@@ -3,6 +3,7 @@
     <ng6-checked-box-list [values]="values" returnKey="name" maxHeightPx="60" formControlName="orders"></ng6-checked-box-list>
     <br>
     Returned Values:-
-    {{form.controls.orders.value}}
+    {{form.controls.orders.value | json}}
+    {{form.valid}}
 </form>
 

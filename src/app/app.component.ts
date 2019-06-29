@@ -15,7 +15,7 @@ export class AppComponent {
       orders: new FormControl(),
       search: new FormControl()
    });
-   this.values.push({id:3,name:"HavePets"});
+   this.values.push({id:3,name:"HavePets",checked:true});
    this.values.push({id:4,name:"haveChildren",checked:true});
   }
   filter(){
