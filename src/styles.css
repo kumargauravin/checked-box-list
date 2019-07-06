@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+.checkbox {
+    display: block;
+    padding: 5px;
+    border: 1px solid grey;
+    overflow: auto;
+}
+
+.row {
+    margin-bottom: .625rem;
+}

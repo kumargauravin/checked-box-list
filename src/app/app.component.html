@@ -1,9 +1,24 @@
+<div class="container">
 <form [formGroup]="form">
-    Search <input type="text" (keyup)="filter()" formControlName="search"/> <button (click)="reset()">reset</button>
-    <ng6-checked-box-list [values]="values" returnKey="name" maxHeightPx="60" formControlName="orders"></ng6-checked-box-list>
-    <br>
+        <div class="row">
+                <div class="col-2">
+    Search</div> <div class="col-3"><input type="text" (keyup)="filter()" formControlName="search"/> <button (click)="reset()">reset</button>
+    </div></div>
+    <div class="row">
+        <div class="col-2">Select options</div>
+        <div class="col-3">
+    <ng6-checked-box-list windowClass="checkbox" [values]="values" returnKey="name" maxHeightPx="120" formControlName="orders"></ng6-checked-box-list>
+    </div>
+    </div>
+    <div class="row">
+            <div class="col-12">
     Returned Values:-
     {{form.controls.orders.value | json}}
+    Validation Status:-
     {{form.valid}}
+    {{form.controls.orders.errors | json}}
+    </div>
+    </div>
 </form>
+</div>
 
