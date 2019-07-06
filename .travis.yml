@@ -9,5 +9,6 @@ cache:
     - node_modules
     
 script:
+ - npm install --unsafe-perm  node-sass
  - npm install
  - npm run package
